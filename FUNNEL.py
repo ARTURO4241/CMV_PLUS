@@ -14,7 +14,7 @@ def reemplazos(v):
 pip.main(['install', 'plotly_express'])
 pip.main(["install","openpyxl"])
 
-st.title("FUNNEL Y TRACKING DE ACTIVACASH 2.0 CON ONBOARDING")
+st.title("FUNNEL Y TRACKING DE ACTIVA PLUS")
 st.text('La presente página permite visualizar el comportamiento generalizado de los socios en la aplicacion.')
 #df=pd.read_excel('PROCESOS_PIVOTE.xlsx')
 
@@ -22,7 +22,7 @@ st.text('La presente página permite visualizar el comportamiento generalizado d
 #st.write(df_2)
 
 st.markdown(f' FUNNEL')
-df=pd.read_csv('FUNEL.csv',encoding='latin-1')
+df=pd.read_csv('FUNEL (1).csv',encoding='latin-1')
 #fig = px.funnel(data, x='number', y='stage')
 #st.ploty_chart(fig)
 #fig.show()
@@ -35,14 +35,14 @@ st.plotly_chart(fig)
 
 
 st.markdown(f' AFLUENCIA DIARIA EN EL UNBORDING 2.0')
-chart_data = pd.read_csv('FECHAS.csv',encoding='latin-1')
+chart_data = pd.read_csv('FECHAS (1).csv',encoding='latin-1')
 chart_data = chart_data.drop('Unnamed: 0',axis=1)
 chart_data = chart_data.set_index('FECHA')
 st.bar_chart(chart_data)
 #st.image('BARRAS.png',caption='EVOLUCION DE LA ACTIVIDAD')
 
 st.text('Estos valores corresponden a los ingresos identificados en las siguientes ubicaciones.')
-df=pd.read_csv('COORDENADAS.csv',encoding='latin-1')
+df=pd.read_csv('COORDENADAS (1).csv',encoding='latin-1')
 df=df.rename(columns={'LATITUD':'lat','LONGITUD':'lon'})
 chart_data = df
  
@@ -75,49 +75,15 @@ st.pydeck_chart(pdk.Deck(
     ],
 ))
 
-
-st.markdown(f' RESUMEN')
-df=pd.read_csv('RESUMEN.csv',encoding='latin-1')
-df=df.drop('Unnamed: 0',axis=1)
-st.text('Con la finalidad de presentar de manera rápida los resultados reelevantes acerca del uso de la app, se muestra a continuación esquema de concentración.')
-#st.write(df)
-#st.text('Los cuales poseen los siguientes valores porcentuales:')
-fig=px.pie(df,values='SOCIOS',names='PROCESO')#,width=500,height=400)
-st.plotly_chart(fig)
-
-
-st.markdown(f' POR EVALUAR')
-df=pd.read_csv('POR EVALUAR.csv',encoding='latin-1')
-df=df.drop('Unnamed: 0',axis=1)
-df['NUMERO_SOCIO']=list(map(reemplazos,df['NUMERO_SOCIO']))
-df['CELULAR']=list(map(reemplazos,df['CELULAR']))
-st.write(df)
-
-
-st.markdown(f' EN PROCESO')
-df=pd.read_csv('EN PROCESO.csv',encoding='latin-1')
-df=df.drop('Unnamed: 0',axis=1)
-df['NUMERO_SOCIO']=list(map(reemplazos,df['NUMERO_SOCIO']))
-df['CELULAR']=list(map(reemplazos,df['CELULAR']))
-st.write(df)
-
-
-st.markdown(f' RECHAZADOS')
-df=pd.read_csv('RECHAZADO.csv',encoding='latin-1')
-df=df.drop('Unnamed: 0',axis=1)
-df['NUMERO_SOCIO']=list(map(reemplazos,df['NUMERO_SOCIO']))
-df['CELULAR']=list(map(reemplazos,df['CELULAR']))
-st.write(df)
-
 st.markdown(f' SISTEMA OPERATIVO')
-df=pd.read_csv('SO.csv',encoding='latin-1')
+df=pd.read_csv('SO (1).csv',encoding='latin-1')
 df=df.drop('Unnamed: 0',axis=1)
 st.text('Las visitas obtenidas corresponden al uso de los siguientes sistemas operativos.')
 fig=px.pie(df, values='FRECUENCIA', names='SISTEMA')#,width=500,height=400)
 st.plotly_chart(fig)
 
 st.markdown(f' NAVEGADOR')
-df=pd.read_csv('NAVEGADOR.csv',encoding='latin-1')
+df=pd.read_csv('NAVEGADOR (1).csv',encoding='latin-1')
 df=df.drop('Unnamed: 0',axis=1)
 st.text('Como enfoque adicional se puede identificar el navegador implementado como se muestra a continuación.')
 fig=px.pie(df,values='FRECUENCIA',names='NAVEGADOR',width=500,height=400)
