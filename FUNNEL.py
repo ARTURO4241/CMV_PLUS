@@ -45,7 +45,7 @@ st.text('Estos valores corresponden a los ingresos identificados en las siguient
 df=pd.read_csv('COORDENADAS (1).csv',encoding='latin-1')
 df=df.rename(columns={'LATITUD':'lat','LONGITUD':'lon'})
 chart_data = df
- 
+
 st.pydeck_chart(pdk.Deck(
     map_style=None,
     initial_view_state=pdk.ViewState(
