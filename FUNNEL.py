@@ -14,7 +14,7 @@ def reemplazos(v):
 pip.main(['install', 'plotly_express'])
 pip.main(["install","openpyxl"])
 
-st.title("FUNNEL Y TRACKING DE ACTIVA PLUS")
+st.title("FUNNEL Y TRACKING DE INVER+")
 st.text('La presente página permite visualizar el comportamiento generalizado de los socios en la aplicacion.')
 #df=pd.read_excel('PROCESOS_PIVOTE.xlsx')
 
