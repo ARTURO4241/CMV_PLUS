@@ -33,6 +33,31 @@ df=pd.read_csv('FUNEL (1).csv',encoding='latin-1')
 fig = px.funnel(df, x=df['FRECUENCIA'], y=df['PASO'])
 st.plotly_chart(fig)
 
+st.markdown(f' FUNNEL')
+st.text('El funnel correspondiente al ultimo mes es el siguiente.')
+df=pd.read_csv('FUNEL (12).csv',encoding='latin-1')
+#fig = px.funnel(data, x='number', y='stage')
+#st.ploty_chart(fig)
+#fig.show()
+#st.image('FUNNEL.png',caption='ACTIVIDAD REGISTRADA PARA CADA UNA DE LAS PANTALLAS')
+#data = dict(
+ #   number=[39, 27.4, 20.6, 11, 2],
+  #  stage=["Website visit", "Downloads", "Potential customers", "Requested price", "invoice sent"])
+fig = px.funnel(df, x=df['FRECUENCIA'], y=df['PASO'])
+st.plotly_chart(fig)
+
+st.markdown(f' FUNNEL')
+st.text('El funnel correspondiente al ultimo dia es el siguiente.')
+df=pd.read_csv('FUNEL (13).csv',encoding='latin-1')
+#fig = px.funnel(data, x='number', y='stage')
+#st.ploty_chart(fig)
+#fig.show()
+#st.image('FUNNEL.png',caption='ACTIVIDAD REGISTRADA PARA CADA UNA DE LAS PANTALLAS')
+#data = dict(
+ #   number=[39, 27.4, 20.6, 11, 2],
+  #  stage=["Website visit", "Downloads", "Potential customers", "Requested price", "invoice sent"])
+fig = px.funnel(df, x=df['FRECUENCIA'], y=df['PASO'])
+st.plotly_chart(fig)
 
 st.markdown(f' AFLUENCIA DIARIA EN EL UNBORDING 2.0')
 chart_data = pd.read_csv('FECHAS (1).csv',encoding='latin-1')
